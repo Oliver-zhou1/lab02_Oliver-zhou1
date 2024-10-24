@@ -77,23 +77,24 @@ void IntBST::printPreOrder(Node *n) const {
 
 // print tree data in-order, with helper
 void IntBST::printInOrder() const {
-    printInOrder(root);
+    bool first = true;
+    printInOrder(root, first);
     cout << endl;
 }
-void IntBST::printInOrder(Node *n) const {
-    if (n == nullptr){
+void IntBST::printInOrder(Node *n, bool &first) const {
+    if (n == nullptr) {
         return;
     }
 
-    printInOrder(n->left);
+    printInOrder(n->left, first);
 
-    cout << n->info;
-
-    if (n->right != nullptr) {
+    if (!first) {
         cout << " ";
     }
+    cout << n->info;
+    first = false;
 
-    printInOrder(n->right);
+    printInOrder(n->right, first);
 }
 
 // prints tree data post-order, with helper
