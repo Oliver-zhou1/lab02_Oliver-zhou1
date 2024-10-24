@@ -96,7 +96,7 @@ void IntBST::printPostOrder(Node *n) const {
     if (n != nullptr) {
         printPostOrder(n->left);
         printPostOrder(n->right);
-        cout << n->info << ",";
+        cout << n->info << " ";
     }
 }
 
